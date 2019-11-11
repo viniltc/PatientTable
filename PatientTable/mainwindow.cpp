@@ -15,11 +15,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
     // Our data path
-    QString path = QCoreApplication::applicationDirPath()+"/data/";
+     QString path = QCoreApplication::applicationDirPath()+"/data/";
+
+   // qDebug()<<path;
 
 
     // Filter only files that fit our naming convention.
-    QStringList qdiFilter("entry_*.xml");
+    //QStringList qdiFilter("entry_*.xml");
+    QStringList qdiFilter("*.xml");
 
 
     // Iterate through all found files, parse each file to be added to the table.
@@ -27,12 +30,13 @@ MainWindow::MainWindow(QWidget *parent)
     while (qdi.hasNext())
     {
         parseDataEntry(qdi.next());
-
     }
+       //qDebug()<<qdi.next();
 }
 
 void MainWindow::parseDataEntry(const QString dataPath)
 {
+
     QString patientID, firstName, surName, lastSession = "";
 
     // Load our XML file.
@@ -102,6 +106,7 @@ void MainWindow::parseDataEntry(const QString dataPath)
 
     // Add a new row to the table, with the data we parsed.
     ui->tableWidget->insertRow(ui->tableWidget->rowCount());
+
     ui->tableWidget->setItem(ui->tableWidget->rowCount() - 1,
                              0,
                              new QTableWidgetItem(patientID));
