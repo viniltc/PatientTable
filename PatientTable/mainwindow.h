@@ -2,6 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QDebug>
+#include <QFile>
+#include <QDirIterator>
+#include <QXmlStreamReader>
+#include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,5 +22,6 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    void parseDataEntry(const QString dataPath);
 };
 #endif // MAINWINDOW_H
