@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -14,18 +15,16 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableWidget->setHorizontalHeaderLabels(QStringList{"Patient ID","Name", "Surname", "LastSession"});
     ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
-    // Our data path
+    //connect(&stagetwonew, SIGNAL(tableUpdate()), this, tabletEvent());
+
+
      QString path = QCoreApplication::applicationDirPath()+"/data/";
 
-   // qDebug()<<path;
 
-
-    // Filter only files that fit our naming convention.
     //QStringList qdiFilter("entry_*.xml");
     QStringList qdiFilter("*.xml");
 
 
-    // Iterate through all found files, parse each file to be added to the table.
     QDirIterator qdi( path, qdiFilter, QDir::Files);
     while (qdi.hasNext())
     {
@@ -126,3 +125,12 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+void MainWindow::on_pushButton_clicked()
+{
+    MainWindow().close();
+    stagetwonew = new StageTwoNew(this);
+    stagetwonew->setWindowTitle("New details");
+    stagetwonew-> show();
+
+}
