@@ -96,24 +96,19 @@ void StageTwoNew::on_pushButton_clicked()
     QTextStream output(&file);
     output << xml.toString();
 
-    //minor edit
 
     file.close();
 
-//// check this later...
+
     if((ui->lineEdit_3->text().length()!=0) & (ui->textEdit->toPlainText().length()!=0))
         {
-        hide();
 
-//        MainWindow().show();
-
+        this->close();
         MainWindow *back = new MainWindow(this);
-        //connect(back, SIGNAL(finished(int)), back, SLOT(deleteLater()));
-
         back->show();
         }
 
-      emit tableUpdate();
+    //  emit tableUpdate();
 }
 
 void StageTwoNew::on_tabWidget_currentChanged(int index)
