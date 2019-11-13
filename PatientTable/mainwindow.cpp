@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
      QString path = QCoreApplication::applicationDirPath()+"/data/";
 
 
-    //QStringList qdiFilter("entry_*.xml");
+
     QStringList qdiFilter("*.xml");
 
     patientData data;
@@ -35,13 +35,6 @@ MainWindow::MainWindow(QWidget *parent)
         parseDataEntry(qdi.next());
         //data.parseDataEntry(qdi.next());
     }
-
-    //qDebug()<<qdi.next();
-
-   //qDebug()<<data.newdata.surName.data();
-
-
-
 
 
 }
@@ -142,6 +135,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
 
+    this->close();
     stagetwonew = new StageTwoNew(this);
     stagetwonew->setWindowTitle("New details");
     stagetwonew-> show();
