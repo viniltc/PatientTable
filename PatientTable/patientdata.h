@@ -7,12 +7,13 @@
 #include <QDirIterator>
 #include <QXmlStreamReader>
 #include <QMessageBox>
+#include <QDomDocument>
 
 class patientData
 {
 public:
 
-     struct parseddata
+     struct parsedItem
     {
         std::string firstName;
         std::string surName;
@@ -22,8 +23,9 @@ public:
 
     }newdata;
 
-    patientData();
-    parseddata parseDataEntry(const QString dataPath);
+     patientData();
+     parsedItem dataFetch(const QString dataPath);
+    //parseddata parseDataEntry(const QString dataPath);
 };
 
 #endif // PATIENTDATA_H
