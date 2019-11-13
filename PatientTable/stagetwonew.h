@@ -17,7 +17,7 @@ class StageTwoNew : public QMainWindow
 public:
     explicit StageTwoNew(QWidget *parent = nullptr);
     ~StageTwoNew();
-  // MainWindow *modify_window;
+ //  MainWindow *modify_window;
 
 signals:
 

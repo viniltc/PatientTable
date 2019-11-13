@@ -104,8 +104,13 @@ void StageTwoNew::on_pushButton_clicked()
     if((ui->lineEdit_3->text().length()!=0) & (ui->textEdit->toPlainText().length()!=0))
         {
         hide();
-        MainWindow().update();
-        MainWindow().show();
+
+//        MainWindow().show();
+
+        MainWindow *back = new MainWindow(this);
+        //connect(back, SIGNAL(finished(int)), back, SLOT(deleteLater()));
+
+        back->show();
         }
 
       emit tableUpdate();

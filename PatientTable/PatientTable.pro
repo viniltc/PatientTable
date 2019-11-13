@@ -18,10 +18,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    patientdata.cpp \
     stagetwonew.cpp
 
 HEADERS += \
     mainwindow.h \
+    patientdata.h \
     stagetwonew.h
 
 FORMS += \

@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "patientdata.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -15,6 +16,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableWidget->setHorizontalHeaderLabels(QStringList{"Patient ID","Name", "Surname", "LastSession"});
     ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
+
+
     //connect(&stagetwonew, SIGNAL(tableUpdate()), this, tabletEvent());
 
 
@@ -24,13 +27,23 @@ MainWindow::MainWindow(QWidget *parent)
     //QStringList qdiFilter("entry_*.xml");
     QStringList qdiFilter("*.xml");
 
+    patientData data;
 
     QDirIterator qdi( path, qdiFilter, QDir::Files);
     while (qdi.hasNext())
     {
         parseDataEntry(qdi.next());
+        //data.parseDataEntry(qdi.next());
     }
-       //qDebug()<<qdi.next();
+
+    //qDebug()<<qdi.next();
+
+   //qDebug()<<data.newdata.surName.data();
+
+
+
+
+
 }
 
 void MainWindow::parseDataEntry(const QString dataPath)
@@ -128,9 +141,19 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    MainWindow().close();
+
     stagetwonew = new StageTwoNew(this);
     stagetwonew->setWindowTitle("New details");
     stagetwonew-> show();
 
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+
+}
+
+void MainWindow::on_tableWidget_cellClicked(int row, int column)
+{
+    // open the the xml file with patient id
 }

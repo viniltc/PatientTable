@@ -26,8 +26,13 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_pushButton_4_clicked();
+
+    void on_tableWidget_cellClicked(int row, int column);
+    void parseDataEntry(const QString dataPath);
+
 private:
     Ui::MainWindow *ui;
-    void parseDataEntry(const QString dataPath);
+
 };
 #endif // MAINWINDOW_H
