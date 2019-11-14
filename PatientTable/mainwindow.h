@@ -24,9 +24,9 @@ public:
 
 
 private slots:
-    void on_pushButton_clicked();
+    void on_pushButton_New_clicked();
 
-    void on_pushButton_4_clicked();
+    void on_pushButton_Open_clicked();
 
     void parseDataEntry(const QString dataPath);
 

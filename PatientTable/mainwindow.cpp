@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 
-    connect(ui->pushButton_4, SIGNAL(clicked()), ui->tableWidget,SLOT(cellClicked()));
+  //  connect(ui->pushButton_4, SIGNAL(clicked()), ui->tableWidget,SLOT(cellClicked()));
 
 
      QString path = QCoreApplication::applicationDirPath()+"/data/";
@@ -134,7 +134,7 @@ MainWindow::~MainWindow()
 }
 
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_pushButton_New_clicked()
 {
 
     this->close();
@@ -144,12 +144,11 @@ void MainWindow::on_pushButton_clicked()
 
 }
 
-void MainWindow::on_pushButton_4_clicked()
+void MainWindow::on_pushButton_Open_clicked()
 {
 
     QModelIndexList selection=ui->tableWidget->selectionModel()->selectedRows(0);
     qDebug()<<"\n The content is"<<selection[0].data().toString();
-   // qDebug()<<"\n The content is"<<selection(0).value();
 
 
 }
