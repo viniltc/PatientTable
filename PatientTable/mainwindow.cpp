@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 
-    //connect(&stagetwonew, SIGNAL(tableUpdate()), this, tabletEvent());
+    connect(ui->pushButton_4, SIGNAL(clicked()), ui->tableWidget,SLOT(cellClicked()));
 
 
      QString path = QCoreApplication::applicationDirPath()+"/data/";
@@ -125,6 +125,7 @@ void MainWindow::parseDataEntry(const QString dataPath)
     ui->tableWidget->setItem(ui->tableWidget->rowCount() - 1,
                              3,
                              new QTableWidgetItem(lastSession));
+    //lastSession.setNum(Qt::DisplayRole);
 }
 
 MainWindow::~MainWindow()
@@ -146,9 +147,12 @@ void MainWindow::on_pushButton_clicked()
 void MainWindow::on_pushButton_4_clicked()
 {
 
+    QModelIndexList selection=ui->tableWidget->selectionModel()->selectedRows(0);
+    qDebug()<<"\n The content is"<<selection[0].data().toString();
+   // qDebug()<<"\n The content is"<<selection(0).value();
+
+
 }
 
-void MainWindow::on_tableWidget_cellClicked(int row, int column)
-{
-    // open the the xml file with patient id
-}
+
+

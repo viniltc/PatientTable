@@ -28,7 +28,6 @@ private slots:
 
     void on_pushButton_4_clicked();
 
-    void on_tableWidget_cellClicked(int row, int column);
     void parseDataEntry(const QString dataPath);
 
 private:
