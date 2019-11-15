@@ -8,6 +8,7 @@
 #include <QXmlStreamReader>
 #include <QMessageBox>
 #include "stagetwonew.h"
+#include "stageone.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -21,9 +22,15 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     StageTwoNew *stagetwonew;
+    StageOne *stageone;
+
+signals:
+
+    void patientIdChanged(QString);
 
 
 private slots:
+
     void on_pushButton_New_clicked();
 
     void on_pushButton_Open_clicked();

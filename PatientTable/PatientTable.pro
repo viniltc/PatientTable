@@ -19,15 +19,18 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     patientdata.cpp \
+    stageone.cpp \
     stagetwonew.cpp
 
 HEADERS += \
     mainwindow.h \
     patientdata.h \
+    stageone.h \
     stagetwonew.h
 
 FORMS += \
     mainwindow.ui \
+    stageone.ui \
     stagetwonew.ui
 
 # Default rules for deployment.

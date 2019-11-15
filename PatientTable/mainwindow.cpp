@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "patientdata.h"
+//#include "patientdata.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -22,13 +22,14 @@ MainWindow::MainWindow(QWidget *parent)
   //  connect(ui->pushButton_4, SIGNAL(clicked()), ui->tableWidget,SLOT(cellClicked()));
 
 
+
      QString path = QCoreApplication::applicationDirPath()+"/data/";
 
 
 
     QStringList qdiFilter("*.xml");
 
-    patientData data;
+  //  patientData data;
 
     QDirIterator qdi( path, qdiFilter, QDir::Files);
     while (qdi.hasNext())
@@ -149,6 +150,15 @@ void MainWindow::on_pushButton_Open_clicked()
 
     QModelIndexList selection=ui->tableWidget->selectionModel()->selectedRows(0);
     qDebug()<<"\n The content is"<<selection[0].data().toString();
+
+
+    this->hide();
+    stageone = new StageOne(selection[0].data().toString());
+    stageone->show();
+
+
+
+    emit patientIdChanged(selection[0].data().toString());
 
 
 }
