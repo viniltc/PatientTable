@@ -4,6 +4,7 @@
 #include <QMainWindow>
 //#include "mainwindow.h"
 #include "stagetwonew.h"
+#include "configsettings.h"
 
 
 
@@ -19,7 +20,12 @@ class StageOne : public QMainWindow
 public:
     explicit StageOne(QString, QWidget *parent = nullptr);
     ~StageOne();
+    configsettings *settingsWindow;
 
+
+
+private slots:
+    void on_pushButton_One_clicked();
 
 private:
     Ui::StageOne *ui;

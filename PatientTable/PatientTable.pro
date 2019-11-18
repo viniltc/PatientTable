@@ -16,6 +16,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    configsettings.cpp \
     main.cpp \
     mainwindow.cpp \
     patientdata.cpp \
@@ -23,12 +24,14 @@ SOURCES += \
     stagetwonew.cpp
 
 HEADERS += \
+    configsettings.h \
     mainwindow.h \
     patientdata.h \
     stageone.h \
     stagetwonew.h
 
 FORMS += \
+    configsettings.ui \
     mainwindow.ui \
     stageone.ui \
     stagetwonew.ui

@@ -2,6 +2,7 @@
 #include "ui_stageone.h"
 #include <QDomDocument>
 #include "mainwindow.h"
+#include "configsettings.h"
 
 StageOne::StageOne(QString someLabel, QWidget *parent) :
     QMainWindow(parent),
@@ -55,4 +56,12 @@ StageOne::StageOne(QString someLabel, QWidget *parent) :
 StageOne::~StageOne()
 {
     delete ui;
+}
+
+void StageOne::on_pushButton_One_clicked()
+{
+    this->close();
+    settingsWindow = new  configsettings (this);
+    settingsWindow ->setWindowTitle("Settings window");
+    settingsWindow -> show();
 }
