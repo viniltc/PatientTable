@@ -126,7 +126,7 @@ void MainWindow::parseDataEntry(const QString dataPath)
     ui->tableWidget->setItem(ui->tableWidget->rowCount() - 1,
                              3,
                              new QTableWidgetItem(lastSession));
-    //lastSession.setNum(Qt::DisplayRole);
+
 }
 
 MainWindow::~MainWindow()
