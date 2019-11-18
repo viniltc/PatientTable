@@ -9,6 +9,8 @@
 #include <QMessageBox>
 #include <QDomDocument>
 
+
+
 class patientData
 {
 public:
@@ -26,6 +28,10 @@ public:
      patientData();
      parsedItem dataFetch(const QString dataPath);
     //parseddata parseDataEntry(const QString dataPath);
+
+
+
+
 };
 
 #endif // PATIENTDATA_H

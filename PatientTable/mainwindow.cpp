@@ -153,7 +153,7 @@ void MainWindow::on_pushButton_Open_clicked()
 
 
     this->hide();
-    stageone = new StageOne(selection[0].data().toString());
+    stageone = new StageOne(selection[0].data().toString(),this);
     stageone->show();
 
 
