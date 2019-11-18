@@ -5,6 +5,9 @@
 //#include "mainwindow.h"
 #include "stagetwonew.h"
 
+
+
+class MainWindow;
 namespace Ui {
 class StageOne;
 }
@@ -20,6 +23,7 @@ public:
 
 private:
     Ui::StageOne *ui;
+    MainWindow *window;
 };
 
 #endif // STAGEONE_H
