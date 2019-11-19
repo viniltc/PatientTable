@@ -17,7 +17,7 @@ StageOne::StageOne(QString someLabel, QWidget *parent) :
     ui->label->setText(someLabel);
     ui->label->setAlignment(Qt::AlignCenter);
 
-
+    patientLabel = someLabel;
 
 
 //    if (someLabel.length()!=0)
@@ -60,6 +60,8 @@ StageOne::~StageOne()
 
 void StageOne::on_pushButton_One_clicked()
 {
+    qDebug()<<"This is patient details"<<patientLabel;
+
     this->close();
     settingsWindow = new  configsettings (this);
     settingsWindow ->setWindowTitle("Settings window");

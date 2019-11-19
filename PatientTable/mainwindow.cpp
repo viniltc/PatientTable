@@ -151,14 +151,11 @@ void MainWindow::on_pushButton_Open_clicked()
     QModelIndexList selection=ui->tableWidget->selectionModel()->selectedRows(0);
     qDebug()<<"\n The content is"<<selection[0].data().toString();
 
-
     this->hide();
     stageone = new StageOne(selection[0].data().toString(),this);
     stageone->show();
 
-
-
-    emit patientIdChanged(selection[0].data().toString());
+ //   emit patientIdChanged(selection[0].data().toString());
 
 
 }

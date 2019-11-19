@@ -21,6 +21,7 @@ public:
     explicit StageOne(QString, QWidget *parent = nullptr);
     ~StageOne();
     configsettings *settingsWindow;
+    QString patientLabel;
 
 
 
