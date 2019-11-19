@@ -12,7 +12,7 @@ class configsettings : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit configsettings(QWidget *parent = nullptr);
+    explicit configsettings(QString, QWidget *parent = nullptr);
     ~configsettings();
 
 private:

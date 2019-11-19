@@ -63,7 +63,7 @@ void StageOne::on_pushButton_One_clicked()
     qDebug()<<"This is patient details"<<patientLabel;
 
     this->close();
-    settingsWindow = new  configsettings (this);
+    settingsWindow = new  configsettings (patientLabel, this);
     settingsWindow ->setWindowTitle("Settings window");
     settingsWindow -> show();
 }

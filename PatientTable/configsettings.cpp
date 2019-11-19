@@ -1,11 +1,15 @@
 #include "configsettings.h"
 #include "ui_configsettings.h"
 
-configsettings::configsettings(QWidget *parent) :
+configsettings::configsettings(QString someLabel,QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::configsettings)
 {
     ui->setupUi(this);
+
+    ui->label_patient->setText(someLabel);
+    ui->label_patient->setAlignment(Qt::AlignCenter);
+
 
     connect(ui->verticalSlider_current, &QSlider::valueChanged, ui->lcdNumber_current, static_cast<void (QLCDNumber::*)(int)>(&QLCDNumber::display));
     connect(ui->verticalSlider_pw, &QSlider::valueChanged, ui->lcdNumber_pw, static_cast<void (QLCDNumber::*)(int)>(&QLCDNumber::display));
