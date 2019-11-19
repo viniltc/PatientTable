@@ -15,6 +15,9 @@ public:
     explicit configsettings(QString, QWidget *parent = nullptr);
     ~configsettings();
 
+private slots:
+    void on_pushButton_save_clicked();
+
 private:
     Ui::configsettings *ui;
 };
