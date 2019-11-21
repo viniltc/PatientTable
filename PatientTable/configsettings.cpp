@@ -30,15 +30,15 @@ configsettings::~configsettings()
 void configsettings::on_pushButton_save_clicked()
 {
 
-    QString currVal = QString::number(ui->verticalSlider_current->value());
+        QString currVal = QString::number(ui->verticalSlider_current->value());
 
 
 
-        QDomDocument document("tetragrip");
+        QDomDocument document;
         QString filename = patientName;
 
 
-        qDebug()<<"file name is:"<<filename;
+        qDebug()<<"file name is:"<<currVal;
 
 
         QString path = QCoreApplication::applicationDirPath()+"/data/"+filename+".xml";
@@ -50,13 +50,17 @@ void configsettings::on_pushButton_save_clicked()
         if(!file.open(QIODevice::ReadOnly  | QIODevice::Text))
         {
             qDebug () << "Error saving XML file...."; // replace this with Q Messange box later!!!!!!!!!!!
-            file.close();
+            return;
+
         }
 
 
+        document.setContent(&file);
         QDomElement root = document.documentElement();
         qDebug()<<root.elementsByTagName("Name").at(0).firstChild().nodeValue();
         qDebug()<<root.elementsByTagName("Surname").at(0).firstChild().nodeValue();
+
+        file.close();
 
         QDomElement newTag = document.createElement(QString("Settings"));
         QDomElement newCurrTag = document.createElement(QString("Current"));
@@ -66,18 +70,16 @@ void configsettings::on_pushButton_save_clicked()
         root.appendChild(newTag);
 
         file.open(QIODevice::WriteOnly | QIODevice::Text);
+
         QTextStream output(&file);
         output << document.toString();
+
+
         file.close();
+
 
 
 
         qDebug()<< "Finished";
-
-
-        file.close();
-
-
-
 
 }
