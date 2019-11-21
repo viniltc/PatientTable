@@ -19,10 +19,6 @@ StageOne::StageOne(QString someLabel, QWidget *parent) :
 
     patientLabel = someLabel;
 
-
-
-
-
 }
 
 StageOne::~StageOne()

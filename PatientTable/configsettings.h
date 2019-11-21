@@ -14,6 +14,7 @@ class configsettings : public QMainWindow
 public:
     explicit configsettings(QString, QWidget *parent = nullptr);
     ~configsettings();
+    QString patientName;
 
 private slots:
     void on_pushButton_save_clicked();
