@@ -47,6 +47,8 @@ void StageTwoNew::on_pushButton_clicked()
     QMessageBox::warning(this, "Warning", "Notes area is empty");
 
     QString filename = ui->lineEdit_3->text();
+    QString date = ui->dateTimeEdit->text();
+    qDebug()<<"Date Time: "<<date;
   // QString location = dir.relativeFilePath("../PatientData");
     QString path = QCoreApplication::applicationDirPath()+"/data/"+filename+".xml";
     QFile file(path);

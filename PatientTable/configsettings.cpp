@@ -3,6 +3,7 @@
 #include <QDomDocument>
 #include <QFile>
 #include <QDebug>
+#include <QMessageBox>
 
 configsettings::configsettings(QString someLabel,QWidget *parent) :
     QMainWindow(parent),
@@ -50,7 +51,10 @@ void configsettings::on_pushButton_save_clicked()
         if(!file.open(QIODevice::ReadOnly  | QIODevice::Text))
         {
             qDebug () << "Error saving XML file...."; // replace this with Q Messange box later!!!!!!!!!!!
+
+            QMessageBox::information(this, "Unable to open file for read", file.errorString());
             return;
+
 
         }
 
@@ -69,7 +73,17 @@ void configsettings::on_pushButton_save_clicked()
         newTag.appendChild(newCurrTag);
         root.appendChild(newTag);
 
-        file.open(QIODevice::WriteOnly | QIODevice::Text);
+        //file.open(QIODevice::WriteOnly | QIODevice::Text);
+
+        if(!file.open(QIODevice::WriteOnly  | QIODevice::Text))
+        {
+            qDebug () << "Error saving XML file...."; // replace this with Q Messange box later!!!!!!!!!!!
+
+            QMessageBox::information(this, "Unable to open file for write", file.errorString());
+            return;
+
+
+        }
 
         QTextStream output(&file);
         output << document.toString();
