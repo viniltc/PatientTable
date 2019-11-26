@@ -40,14 +40,17 @@ void configsettings::on_pushButton_save_clicked()
         QString path = QCoreApplication::applicationDirPath()+"/data/"+filename+".xml";
         QFile file(path);
 
+        /* QT Append wont work!
+         * Open the file read-only, read it all in, close it.
+         * Make changes in-memory document.
+         * Then open the file for overwrite, write all content, close file. */
+
         if(!file.open(QIODevice::ReadOnly  | QIODevice::Text))
         {
             qDebug () << "Error saving XML file....";
 
             QMessageBox::information(this, "Unable to open file for read", file.errorString());
             return;
-
-
         }
 
         QDomDocument document;
@@ -61,10 +64,6 @@ void configsettings::on_pushButton_save_clicked()
 
         QDomElement newTag = document.createElement(QString("Settings"));
 
-//        QDomNode domNode = root.elementsByTagName("Settings").at(0).firstChild();
-//        QDomElement domElement = domNode.toElement();
-
-//        if (domElement.isNull()){
 
         QDomElement newCurrTag = document.createElement(QString("Current"));
         QDomText newCurrVal = document.createTextNode(currVal);
@@ -84,8 +83,6 @@ void configsettings::on_pushButton_save_clicked()
 
         root.appendChild(newTag);
 
-        //  }
-
 
         if(!file.open(QIODevice::WriteOnly  | QIODevice::Text))
         {
@@ -93,8 +90,6 @@ void configsettings::on_pushButton_save_clicked()
 
             QMessageBox::information(this, "Unable to open file for write", file.errorString());
             return;
-
-
         }
 
         QTextStream output(&file);
