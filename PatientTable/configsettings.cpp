@@ -55,8 +55,8 @@ void configsettings::on_pushButton_save_clicked()
         QDomDocument document;
         document.setContent(&file);
         QDomElement root = document.documentElement();
-        qDebug()<<root.elementsByTagName("Name").at(0).firstChild().nodeValue();
-        qDebug()<<root.elementsByTagName("Surname").at(0).firstChild().nodeValue();
+//        qDebug()<<root.elementsByTagName("Name").at(0).firstChild().nodeValue();
+//        qDebug()<<root.elementsByTagName("Surname").at(0).firstChild().nodeValue();
 
         file.close();
 
@@ -78,7 +78,6 @@ void configsettings::on_pushButton_save_clicked()
         QDomText newFreqVal = document.createTextNode(FreqVal);
         newFreqTag.appendChild(newFreqVal);
         newTag.appendChild(newFreqTag);
-
 
         root.appendChild(newTag);
 
