@@ -162,3 +162,8 @@ void MainWindow::on_pushButton_Open_clicked()
 
 
 
+
+void MainWindow::on_pushButton_Modify_clicked()
+{
+
+}

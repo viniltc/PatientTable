@@ -32,6 +32,8 @@ void configsettings::on_pushButton_save_clicked()
 {
 
         QString currVal = QString::number(ui->verticalSlider_current->value());
+        QString PWVal = QString::number(ui->verticalSlider_pw->value());
+        QString FreqVal = QString::number(ui->verticalSlider_frequency->value());
 
 
 
@@ -66,14 +68,33 @@ void configsettings::on_pushButton_save_clicked()
 
         file.close();
 
+
         QDomElement newTag = document.createElement(QString("Settings"));
+
+//        QDomNode domNode = root.elementsByTagName("Settings").at(0).firstChild();
+//        QDomElement domElement = domNode.toElement();
+
+//        if (domElement.isNull()){
+
         QDomElement newCurrTag = document.createElement(QString("Current"));
         QDomText newCurrVal = document.createTextNode(currVal);
         newCurrTag.appendChild(newCurrVal);
         newTag.appendChild(newCurrTag);
-        root.appendChild(newTag);
 
-        //file.open(QIODevice::WriteOnly | QIODevice::Text);
+        QDomElement newPWTag = document.createElement(QString("PW"));
+        QDomText newPWVal = document.createTextNode(PWVal);
+        newPWTag.appendChild(newPWVal);
+        newTag.appendChild(newPWTag);
+
+        QDomElement newFreqTag = document.createElement(QString("Freq"));
+        QDomText newFreqVal = document.createTextNode(FreqVal);
+        newFreqTag.appendChild(newFreqVal);
+        newTag.appendChild(newFreqTag);
+
+
+        root.appendChild(newTag);
+      //  }
+
 
         if(!file.open(QIODevice::WriteOnly  | QIODevice::Text))
         {
@@ -90,7 +111,6 @@ void configsettings::on_pushButton_save_clicked()
 
 
         file.close();
-
 
 
 

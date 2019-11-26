@@ -37,6 +37,8 @@ private slots:
 
     void parseDataEntry(const QString dataPath);
 
+    void on_pushButton_Modify_clicked();
+
 private:
     Ui::MainWindow *ui;
 
