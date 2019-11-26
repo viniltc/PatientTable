@@ -36,18 +36,8 @@ void configsettings::on_pushButton_save_clicked()
         QString FreqVal = QString::number(ui->verticalSlider_frequency->value());
 
 
-
-        QDomDocument document;
         QString filename = patientName;
-
-
-        qDebug()<<"file name is:"<<currVal;
-
-
         QString path = QCoreApplication::applicationDirPath()+"/data/"+filename+".xml";
-
-        qDebug()<<"\nComplete path is:"<<path;
-
         QFile file(path);
 
         if(!file.open(QIODevice::ReadOnly  | QIODevice::Text))
@@ -60,7 +50,7 @@ void configsettings::on_pushButton_save_clicked()
 
         }
 
-
+        QDomDocument document;
         document.setContent(&file);
         QDomElement root = document.documentElement();
         qDebug()<<root.elementsByTagName("Name").at(0).firstChild().nodeValue();
