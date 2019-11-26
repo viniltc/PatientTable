@@ -52,7 +52,7 @@ void configsettings::on_pushButton_save_clicked()
 
         if(!file.open(QIODevice::ReadOnly  | QIODevice::Text))
         {
-            qDebug () << "Error saving XML file...."; // replace this with Q Messange box later!!!!!!!!!!!
+            qDebug () << "Error saving XML file....";
 
             QMessageBox::information(this, "Unable to open file for read", file.errorString());
             return;
@@ -93,12 +93,13 @@ void configsettings::on_pushButton_save_clicked()
 
 
         root.appendChild(newTag);
-      //  }
+
+        //  }
 
 
         if(!file.open(QIODevice::WriteOnly  | QIODevice::Text))
         {
-            qDebug () << "Error saving XML file...."; // replace this with Q Messange box later!!!!!!!!!!!
+            qDebug () << "Error saving XML file....";
 
             QMessageBox::information(this, "Unable to open file for write", file.errorString());
             return;
@@ -108,11 +109,7 @@ void configsettings::on_pushButton_save_clicked()
 
         QTextStream output(&file);
         output << document.toString();
-
-
         file.close();
-
-
 
         qDebug()<< "Finished";
 
