@@ -79,6 +79,10 @@ void configsettings::on_pushButton_save_clicked()
         newFreqTag.appendChild(newFreqVal);
         newTag.appendChild(newFreqTag);
 
+
+        //se
+
+
         root.appendChild(newTag);
 
 
